@@ -34,6 +34,7 @@
     "@typescript-eslint/lines-between-class-members": ["off"],
     "@typescript-eslint/member-ordering": "off",
     "import/prefer-default-export": "off",
+    "import/named": "off",
     "prefer-destructuring": [
       "error",
       {
