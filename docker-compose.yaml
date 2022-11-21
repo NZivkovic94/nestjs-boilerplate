@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  nb_redis:
+    image: 'bitnami/redis:latest'
+    hostname: nb_redis
+    volumes:
+      - nb_redis:/data
+    container_name: nb_redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6380:6379'
+    networks:
+      - nb
+
+  nb_redis_commander:
+    container_name: nb_redis_commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:nb_redis:6379
+    ports:
+      - '8081:8081'
+    networks:
+      - nb
+
+networks:
+  nb:
+    name: nb
+
+volumes:
+  nb_redis:
