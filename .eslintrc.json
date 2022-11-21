@@ -22,7 +22,7 @@
     "@typescript-eslint/no-explicit-any": "off", // will be turned on as error in the future
     "prettier/prettier": "error",
     "quotes": ["off"],
-    "@typescript-eslint/quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "@typescript-eslint/quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
     "sort-keys": ["off"],
     "no-useless-constructor": ["off"],
     "class-methods-use-this": ["off"],
