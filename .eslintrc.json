@@ -1,0 +1,144 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:nestjs/recommended",
+    "plugin:import/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": ["tailwind.config.js"],
+  "plugins": ["@typescript-eslint", "prettier", "nestjs"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off", // will be turned on as error in the future
+    "prettier/prettier": "error",
+    "quotes": ["off"],
+    "@typescript-eslint/quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "sort-keys": ["off"],
+    "no-useless-constructor": ["off"],
+    "class-methods-use-this": ["off"],
+    "max-classes-per-file": ["off"],
+    "no-restricted-syntax": ["off"],
+    "no-await-in-loop": ["warn"],
+    "consistent-return": ["warn"],
+    "new-cap": ["off", { "newIsCapExceptionPattern": "@\\.." }],
+    "@typescript-eslint/lines-between-class-members": ["off"],
+    "@typescript-eslint/member-ordering": "off",
+    "import/prefer-default-export": "off",
+    "prefer-destructuring": [
+      "error",
+      {
+        "VariableDeclarator": {
+          "array": false,
+          "object": true
+        },
+        "AssignmentExpression": {
+          "array": false,
+          "object": false
+        }
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "comma-dangle": ["error", "never"],
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "no-console": ["error"],
+    "no-empty-function": ["off"],
+    "@typescript-eslint/no-empty-function": [
+      "error",
+      {
+        "allow": ["private-constructors", "protected-constructors", "decoratedFunctions"]
+      }
+    ],
+    "no-shadow": ["off"],
+    "@typescript-eslint/no-shadow": ["warn"],
+    "import/no-unresolved": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "prefer-const": ["warn"],
+    "func-names": ["off"],
+    "no-underscore-dangle": ["warn", { "allowAfterThis": true }],
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "warn",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": true,
+        "allowHigherOrderFunctions": true
+      }
+    ],
+    "no-useless-catch": "off",
+    "no-param-reassign": "warn",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "snake_case"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": ["classProperty"],
+        "format": ["camelCase", "snake_case", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": ["classProperty"],
+        "modifiers": ["private"],
+        "leadingUnderscore": "allow",
+        "format": ["camelCase", "snake_case"]
+      },
+      {
+        "selector": ["function", "classMethod"],
+        "format": ["camelCase", "PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "leadingUnderscore": "allow",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": ["enumMember"],
+        "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": ["enum", "class", "typeAlias"],
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": ["interface"],
+        "prefix": ["i"],
+        "format": ["PascalCase"]
+      }
+    ],
+    "@typescript-eslint/ban-types": [
+      "warn",
+      {
+        "extendDefaults": true,
+        "types": {
+          "object": "The `object` type is currently hard to use ([see this issue](https://github.com/microsoft/TypeScript/issues/21732)). Consider using `Record<string, unknown>` instead, as it allows you to more easily inspect and use the keys. ***Added comment: If Record<string, unknown> does not work in some complex situation, use object but don't use 'in' operator to check if a key exists on that variable or property"
+        }
+      }
+    ]
+  }
+}
