@@ -1,12 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { MainVariables } from './env-vars';
+import { MainVars, RedisVars } from './types';
 
 @Injectable()
 export class ConfigurationService {
   constructor(private configService: ConfigService) {}
 
-  get main(): MainVariables {
-    return this.configService.get<MainVariables>('main');
+  get main(): MainVars {
+    return this.configService.get<MainVars>('main');
+  }
+
+  get port(): number {
+    return this.configService.get<number>('main.port');
+  }
+
+  get redisKeyExpirationSeconds(): number {
+    return this.configService.get<number>('main.redisKeyExpirationSeconds');
+  }
+
+  get redis(): RedisVars {
+    return this.configService.get<RedisVars>('redis');
   }
 }

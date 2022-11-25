@@ -18,7 +18,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:compose:up": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -32,6 +34,7 @@
     "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-nestjs": "^1.2.3",
     "eslint-plugin-promise": "^6.1.1",
+    "ioredis": "^5.2.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
@@ -42,7 +45,7 @@
     "@nestjs/testing": "^9.0.0",
     "@types/express": "^4.17.13",
     "@types/jest": "28.1.8",
-    "@types/node": "^16.0.0",
+    "@types/node": "^16.18.3",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
