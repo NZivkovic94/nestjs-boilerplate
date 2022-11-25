@@ -1,0 +1,6 @@
+-- install docker
+-- install docker-compose
+-- configure docker to run without sudo https://docs.docker.com/engine/install/linux-postinstall/
+-- make .env file
+-- npm run docker:compose:up
+-- npm run start:dev

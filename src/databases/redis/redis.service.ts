@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import Redis from 'ioredis';
+import Redis, { RedisKey, RedisValue } from 'ioredis';
 import { ConfigurationService } from 'src/configuration/configuration.service';
-import { RedisField, RedisKey, RedisValue } from './types';
+// import { RedisField, RedisKey, RedisValue } from './types';
 @Injectable()
 export class RedisService {
   private redis: Redis;
@@ -17,12 +17,12 @@ export class RedisService {
     return this.redis.get(key);
   }
 
-  async hset(key: RedisKey, value: any): Promise<void> {
+  async hset(key: RedisKey, value: Record<string, any>): Promise<void> {
     await this.redis.hset(key, value);
     await this.redis.expire(key, this.configService.redisKeyExpirationSeconds, 'NX');
   }
 
-  async hget(key: RedisKey, field: RedisField): Promise<any> {
+  async hget(key: RedisKey, field: string | Buffer): Promise<any> {
     return this.redis.hget(key, field);
   }
 

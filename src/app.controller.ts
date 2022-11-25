@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Query, ValidationPipe } from '@nestjs/common';
+import { RedisKey, RedisValue } from 'ioredis';
 import { AppService } from './app.service';
 import { RedisService } from './databases/redis/redis.service';
-import { RedisKey, RedisValue } from './databases/redis/types';
 import { BodyExampleDto } from './dtos/body-example.dto';
 import { QueryExampleDto } from './dtos/query-example.dto';
 
