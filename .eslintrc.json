@@ -20,7 +20,7 @@
   "plugins": ["@typescript-eslint", "prettier", "nestjs"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off", // will be turned on as error in the future
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "quotes": ["off"],
     "@typescript-eslint/quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
     "sort-keys": ["off"],
@@ -60,7 +60,7 @@
       }
     ],
     "comma-dangle": ["error", "never"],
-    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "semi": ["off", "always", { "omitLastInOneLineBlock": true }],
     "no-console": ["error"],
     "no-empty-function": ["off"],
     "@typescript-eslint/no-empty-function": [

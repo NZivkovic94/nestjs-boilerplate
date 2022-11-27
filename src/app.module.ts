@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { ConfigurationService } from './configuration/configuration.service';
+import { ConfigurationModule } from './configuration/configuration.module';
 import env from './configuration/env';
 import { RedisModule } from './databases/redis/redis.module';
 
@@ -14,9 +14,10 @@ import { RedisModule } from './databases/redis/redis.module';
       cache: true,
       load: [env]
     }),
-    RedisModule
+    RedisModule,
+    ConfigurationModule
   ],
   controllers: [AppController],
-  providers: [AppService, ConfigurationService]
+  providers: [AppService]
 })
 export class AppModule {}
