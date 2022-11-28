@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
+import { Entity } from '@prisma/client';
 import { AppService } from './app.service';
 import { PrismaService } from './prisma/prisma.service';
 
@@ -9,5 +10,15 @@ export class AppController {
   @Get()
   async getHello(): Promise<string> {
     return this.appService.getHello();
+  }
+
+  @Post('entity')
+  async createEntity(): Promise<Entity> {
+    return this.prisma.entity.create({ data: {} });
+  }
+
+  @Get('entities')
+  async getEntities(): Promise<Entity[]> {
+    return this.prisma.entity.findMany();
   }
 }

@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { RedisModule } from '../redis/redis.module';
 import { ConfigurationModule } from './configuration/configuration.module';
-import { RedisModule } from './databases/redis/redis.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
