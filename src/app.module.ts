@@ -1,22 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { ConfigurationModule } from './configuration/configuration.module';
-import env from './configuration/env';
 import { RedisModule } from './databases/redis/redis.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      cache: true,
-      load: [env]
-    }),
-    RedisModule,
-    ConfigurationModule
-  ],
+  imports: [RedisModule, ConfigurationModule, PrismaModule],
   controllers: [AppController],
   providers: [AppService]
 })

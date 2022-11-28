@@ -24,11 +24,24 @@ services:
       REDIS_PORT: nb_redis:${REDIS_PORT}
       REDIS_PASSWORD: ${REDIS_PASS}
     ports:
-      - '${REDIS_COMMANDER_PORT}:8081'
+      - ${REDIS_COMMANDER_PORT}:8081
     networks:
       - nb
     depends_on:
       - nb_redis
+
+  nb_postgres:
+    container_name: nb_postgres
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - DATABASE_URL=${POSTGRES_DATABASE_URL}
+    volumes:
+      - nb_postgres:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - nb
 
 networks:
   nb:
@@ -36,3 +49,4 @@ networks:
 
 volumes:
   nb_redis:
+  nb_postgres:
