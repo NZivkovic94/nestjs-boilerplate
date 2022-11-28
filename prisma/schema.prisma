@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_DATABASE_URL")
+}
+//Each model has to have the fields in entity
+model Entity {
+  id        String    @id @default(uuid())   
+  createdAt DateTime? @default(now()) @ignore
+  updatedAt DateTime? @updatedAt @ignore
+}
